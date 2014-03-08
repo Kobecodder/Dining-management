@@ -1,0 +1,80 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="row-fluid hero-unit forPadding">
+
+<div class="span2"><h3>Hallo! Mr. {{ username }}</h3></div>
+<div class="span7"><h2 class="text-center topbar2">Get your meal</h2></div>
+<div class="span3"><h3><a href="/logout/">logout</a></h3></div>
+</div>
+
+
+<div class="row-fluid">
+
+<div class="span4 hero-unit">
+    <form action="" method="post" > {% csrf_token %}
+
+    <div class="mymeal">
+{#    <p><label for="id_dining_user">user:{{ form.dining_user }}</label></p>#}
+    <p><label for="id_breakfast">Breakfast:{{ form.breakfast }}</label></p>
+    <p><label for="id_launch" >Lunch  : {{ form.lunch }}</label></p>
+    <p><label for="id_dinner" >Dinner  : {{ form.dinner }}</label></p>
+    <p ><label for="id_order_on" >Date: {{ form.order_on }}</label></p>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+
+</div>
+<div class="span4 hero-unit">
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr  class="success">
+            <th>Time</th>
+            <th>Today</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+            <th>Breakfast</th>
+            <th>{{ personal_meal.todays_breakfast }}</th>
+            <th>{{ personal_meal.total_breakfast }}</th>
+        </tr>
+        <tr>
+            <th>Lunch</th>
+            <th>{{ personal_meal.todays_lunch }}</th>
+            <th>{{ personal_meal.total_lunch }}</th>
+        </tr>
+        <tr>
+            <th>Dinner</th>
+            <th>{{ personal_meal.todays_dinner }}</th>
+            <th>{{ personal_meal.total_dinner }}</th>
+        </tr>
+    </tbody>
+
+
+</table>
+</div>
+<div class="span4 hero-unit">
+ <table class="table table-bordered table-hover">
+     <thead>
+     <tr>
+        <th>Name</th>
+        <th>Payable</th>
+        <th>Payment</th>
+        <th>Due</th>
+    </tr>
+     </thead>
+     <tr>
+        <th>{{ username }}</th>
+        <th>{{ personal_meal.payable }}</th>
+        <th>{{ personal_meal.payment }}</th>
+        <th>{{ personal_meal.due }}</th>
+    </tr>
+     </table>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+{% block body %}
+
+<div class="row-fluid hero-unit forPadding">
+
+<div class="span2"><h3>Hallo! Admin</h3></div>
+<div class="span7"><h2 class="text-center topbar2">Dining Overview</h2></div>
+<div class="span3"><h3><a href="/logout/">logout</a></h3></div>
+</div>
+
+<div class="row-fluid">
+<div class="span4 hero-unit">
+     <form action="" method="post" > {% csrf_token %}
+
+    <div class="mymeal">
+    <p><label for="id_dining_user">user:{{ form.dining_user }}</label></p>
+    <p><label for="id_breakfast">Breakfast:{{ form.breakfast }}</label></p>
+    <p><label for="id_launch" >Lunch  : {{ form.lunch }}</label></p>
+    <p><label for="id_dinner" >Dinner  : {{ form.dinner }}</label></p>
+    <p ><label for="id_order_on" >Date: {{ form.order_on }}</label></p>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+
+</div>
+<div class="span3 ">
+    <h3 class="text-center">Todays Meal</h3>
+   <table class="table table-bordered table-hover">
+   <thead>
+    <tr>
+    <th>Name</th>
+    <th>breakfast </th>
+    <th>lunch</th>
+    <th>dinner </th>
+    </tr>
+
+   </thead>
+
+   {% for key, value in total.items %}
+    <tr>
+    <th>{{ key }}</th>
+    <th>{{ value.todays_breakfast}}</th>
+    <th>{{ value.todays_lunch}}</th>
+    <th>{{ value.todays_dinner}}</th>
+
+    </tr>
+   {% endfor %}
+    <tr>
+    <th>Total</th>
+    <th>{{ breakfast }}</th>
+    <th>{{ lunch }}</th>
+    <th>{{ dinner }}</th>
+    </tr>
+</table>
+
+</div>
+<div class="span5">
+    <h3 class="text-center">Accounts</h3>
+    <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>breakfast </th>
+    <th>lunch</th>
+    <th>dinner</th>
+    <th>Payable</th>
+    <th>Payment</th>
+    <th>Total Due</th>
+    </tr>
+
+    </thead>
+
+    {% for key, value in total.items %}
+    <tr>
+    <th>{{ key }}</th>
+    <th>{{ value.breakfast}}</th>
+    <th>{{ value.lunch}}</th>
+    <th>{{ value.dinner}}</th>
+    <th>{{ value.payable}}</th>
+    <th>{{ value.Payment}}</th>
+    <th>{{ value.due}}</th>
+    </tr>
+   {% endfor %}
+</table>
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

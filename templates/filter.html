@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span8">
+            <div class="text-center">
+                <form action="" method="get">
+                    <div>
+                        <h3>Give Date</h3>
+                        <p ><label for="id_order_on" >Date: {{ filter.form.order_on }}</label></p>
+                    </div>
+                    <input type="submit" value="submit"/>
+                </form>
+
+            </div>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Dinner</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                {% for obj in filter %}
+                    <tbody>
+                    <tr>
+                        <th>{{ obj.dining_user.username }}</th>
+                        <th>{{ obj.breakfast|yesno:"1,0" }}</th>
+                        <th>{{ obj.lunch|yesno:"1,0"}}</th>
+                        <th>{{ obj.dinner|yesno:"1,0" }}</th>
+                        <th>{{ obj.order_on }}</th>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+
+
+        </div>
+        <div class="span2"></div>
+
+    </div>
+{% endblock %}

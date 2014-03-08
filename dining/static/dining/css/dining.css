@@ -1,0 +1,53 @@
+.topbar{
+    font-size: 75px;
+    font-style: inherit;
+    color: #ffffff;
+}
+
+.topbar2{
+    font-size: 3em;
+    font-style: italic;
+    color: #1a1a1a;
+}
+
+.mymeal{
+    font-size: 40px !important;
+
+    font-style: inherit;
+}
+
+.table_style{
+
+}
+.table_style.tr.th  {
+    width: 15px;
+}
+
+.forPadding{
+    padding: 10px;
+}
+
+.table th{
+    font-weight: normal;
+}
+.table thead th{
+    background: rgba(158, 214, 42, 0.80);
+}
+.table tbody th{
+    background: rgba(158, 214, 42, 0.20);
+}
+
+.datestyle{
+    width: 84px;
+}
+
+.form p label section{
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    width: 78px;
+}
+.select {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    width: 78px;
+}
